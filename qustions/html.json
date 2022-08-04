@@ -1,0 +1,72 @@
+[
+  {
+    "q": "What is HTML?",
+    "ans": {
+      "f1": "HTML describes the structure of a webpage",
+      "f2": "HTML is the standard markup language mainly used to create web pages",
+      "f3": "HTML consists of a set of elements that helps the browser how to view the",
+      "t": "All of the mentioned"
+    },
+    "exp": "Explanation: HTML is the standard markup language mainly used to create web pages. HTML describes the structure and layout of a webpage. HTML consists of a series of elements that helps the browser how to display content easily."
+  },
+  {
+    "q": "HTML stands for __________",
+    "ans": {
+      "f1": "HyperText Machine Language",
+      "f2": "HyperText Marking Language",
+      "f3": "HighText Marking Language",
+      "t": "HyperText Markup Language"
+    },
+    "exp": "Explanation: HTML stands for “HyperText Markup Language”. HTML is the standard markup language mainly used to design and create web pages and web applications."
+  },
+  {
+    "q": "What is the correct syntax of doctype in HTML5?",
+    "ans": {
+      "f1": "</doctype html>",
+      "f2": "<doctype html>",
+      "f3": "<doctype html!>",
+      "t": "<!doctype html>"
+    },
+    "exp": "Explanation: The correct syntax of HTML5 doctype is <!doctype html>, doctype is the very first thing to write in HTML5. <!doctype html> or <!DOCTYPE HTML> both are same because doctype keyword is not case sensitive."
+  },
+  {
+    "q": "Which of the following is used to read an HTML page and render it?",
+    "ans": {
+      "f1": "Web server",
+      "f2": "Web network",
+      "f3": "Web matrix",
+      "t": "Web browser"
+    },
+    "exp": "Explanation: A web browser (commonly referred to as a browser) is a software application for retrieving, presenting and traversing information resources on the World Wide Web. A web server process, store and display output to the client as per their request. Web matrix is a discontinued cloud-connected website builder and HTML editor for Windows."
+  },
+  {
+    "q": "Which of the following is not a difference between HTML and XHTML?",
+    "ans": {
+      "f1": "Tags and attributes are case-insensitive in HTML but not in XHTML",
+      "f2": "Special characters must be escaped using character entities in XHTML unlike HTML",
+      "f3": "Charset in html is “text/html” where as in xhtml it is “application/xml+xhtml”",
+      "t": "Charset in both html and xhtml is “text/html”"
+    },
+    "exp": "Explanation: HTML is case insensitive while XHTML is case sensitive. In XHTML, special characters can be escaped using character entites but not in HTML. Charset in HTML is “text/html” where as it is “application/xml+xhtml” for XHTML."
+  },
+  {
+    "q": "Which of the following tag is used for inserting the largest heading in HTML?",
+    "ans": {
+      "f1": "head",
+      "f2": "<h6>",
+      "f3": "heading",
+      "t": "<h1>"
+    },
+    "exp": "Explanation: Headings in HTML starts from <h1> to <h6> in which <h1> heading is the largest one and <h6> is smallest one among those. The heading tags are <h1> <h2> <h3> <h4> <h5> and <h6> that are used for the creations of headings."
+  },
+  {
+    "q": "What is DOM in HTML?",
+    "ans": {
+      "f1": "Language dependent application programming",
+      "f2": "Application programming interface",
+      "f3": "Hierarchy of objects in ASP.NET",
+      "t": "Convention for representing and interacting with objects in html documents"
+    },
+    "exp": "Explanation: The Document Object Model is a cross-platform and language-independent application programming interface that treats an HTML, XHTML, or XML document as a tree structure. A document can be viewed as a logical tree with help of DOM Model."
+  }
+]

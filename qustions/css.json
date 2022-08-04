@@ -1,0 +1,72 @@
+[
+  {
+    "q": "Which of the below is the abbreviation of CSS ?",
+    "ans": {
+      "f1": "Cascade sheets style",
+      "f2": "Color and style sheets",
+      "f3": "Coded Style Sheet",
+      "t": "Cascading style sheets"
+    },
+    "exp": "CSS is used for designing the Html content of the webpage The correct full form of CSS is Cascading Style Sheets."
+  },
+  {
+    "q": "Which of the following is the correct syntax to add the external stylesheet in CSS?",
+    "ans": {
+      "f1": "<style src = quiz.css>",
+      "f2": "<stylesheet> quiz.css </stylesheet>",
+      "f3": "<style src = 'quiz.css'>",
+      "t": "<link rel='stylesheet' type='quiz/css' href='quiz.css'>"
+    },
+    "exp": "There is a three-way for linking the HTML page to CSS. Out of three-way external CSS <link rel='stylesheet' type=' quiz/css' href='quiz.css'>, Here rel is a relationship for stylesheet and type is CSS under quiz folder and href link to the quiz.css file."
+  },
+  {
+    "q": "Which of the below CSS properties is used to change the background color of CSS ?",
+    "ans": {
+      "f1": "bg color",
+      "f2": "color-background",
+      "f3": "color",
+      "t": "background-color"
+    },
+    "exp": "The background color is a property in CSS that is used to change the background color of an element. The background covers all the sizes of the element. This property helps the text be more readable for the user."
+  },
+  {
+    "q": "Which of the below CSS class is used to change the text color of CSS ?",
+    "ans": {
+      "f1": "background-color",
+      "f2": "color-background",
+      "f3": "None of the above",
+      "t": "color"
+    },
+    "exp": "The CSS color property is used to set the color of the HTML element. This property is responsible for setting the font color, background color, etc. The color of elements can be defined in many ways like Built-In Color, RGB Format, RGBA Format, etc."
+  },
+  {
+    "q": "Which of the below is the correct syntax to put a line over text in CSS?",
+    "ans": {
+      "f1": "text-decoration: line",
+      "f2": "text-decoration: none",
+      "f3": "text-decoration: underline",
+      "t": "text-decoration: overline"
+    },
+    "exp": "The text-decoration: the overline property is used to sets many kinds of text-decoration. The text-decoration may include many values such as underline, overline, line-through, etc."
+  },
+  {
+    "q": "Which below property of CSS is used to set the indentation of the first line in a block of text ?",
+    "ans": {
+      "f1": "text-underlne-property",
+      "f2": "text-decoration none",
+      "f3": "text-overflow property",
+      "t": "text-indent property"
+    },
+    "exp": "The text-indent property in CSS is used to define the indentation of the first line in each block of text. It also takes negative values. It means if the value is negative then the first line will be indented to the left."
+  },
+  {
+    "q": "Which of the below CSS properties represent the order of flex items in the grid container ?",
+    "ans": {
+      "f1": "float",
+      "f2": "overflow",
+      "f3": "All of the above",
+      "t": "order"
+    },
+    "exp": "The order property in CSS which is used responsibly for the order of each flexible item in relation to other items inside the flexible container. If the element is not flexible then item then this property does not exist anymore."
+  }
+]
