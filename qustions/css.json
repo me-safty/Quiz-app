@@ -10,16 +10,6 @@
     "exp": "CSS is used for designing the Html content of the webpage The correct full form of CSS is Cascading Style Sheets."
   },
   {
-    "q": "Which of the following is the correct syntax to add the external stylesheet in CSS?",
-    "ans": {
-      "f1": "<style src = quiz.css>",
-      "f2": "<stylesheet> quiz.css </stylesheet>",
-      "f3": "<style src = 'quiz.css'>",
-      "t": "<link rel='stylesheet' type='quiz/css' href='quiz.css'>"
-    },
-    "exp": "There is a three-way for linking the HTML page to CSS. Out of three-way external CSS <link rel='stylesheet' type=' quiz/css' href='quiz.css'>, Here rel is a relationship for stylesheet and type is CSS under quiz folder and href link to the quiz.css file."
-  },
-  {
     "q": "Which of the below CSS properties is used to change the background color of CSS ?",
     "ans": {
       "f1": "bg color",

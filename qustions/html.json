@@ -22,12 +22,12 @@
   {
     "q": "What is the correct syntax of doctype in HTML5?",
     "ans": {
-      "f1": "</doctype html>",
-      "f2": "<doctype html>",
-      "f3": "<doctype html!>",
-      "t": "<!doctype html>"
+      "f1": "'&#60;/doctype html&#62;'",
+      "f2": "'&#60;doctype html&#62;'",
+      "f3": "'&#60;doctype html!&#62;'",
+      "t": "'&#60;!doctype html&#62;'"
     },
-    "exp": "Explanation: The correct syntax of HTML5 doctype is <!doctype html>, doctype is the very first thing to write in HTML5. <!doctype html> or <!DOCTYPE HTML> both are same because doctype keyword is not case sensitive."
+    "exp": "Explanation: The correct syntax of HTML5 doctype is &#60;!doctype html&#62;, doctype is the very first thing to write in HTML5. &#60;!doctype html&#62; or &#60;!DOCTYPE HTML&#62; both are same because doctype keyword is not case sensitive."
   },
   {
     "q": "Which of the following is used to read an HTML page and render it?",
@@ -53,11 +53,11 @@
     "q": "Which of the following tag is used for inserting the largest heading in HTML?",
     "ans": {
       "f1": "head",
-      "f2": "<h6>",
+      "f2": "&#60;h6&#62;",
       "f3": "heading",
-      "t": "<h1>"
+      "t": "&#60;h1&#62;"
     },
-    "exp": "Explanation: Headings in HTML starts from <h1> to <h6> in which <h1> heading is the largest one and <h6> is smallest one among those. The heading tags are <h1> <h2> <h3> <h4> <h5> and <h6> that are used for the creations of headings."
+    "exp": "Explanation: Headings in HTML starts from &#60;h1&#62; to &#60;h6&#62; in which &#60;h1&#62; heading is the largest one and &#60;h6&#62; is smallest one among those. The heading tags are &#60;h1&#62; &#60;h2&#62; &#60;h3&#62; &#60;h4&#62; &#60;h5&#62; and &#60;h6&#62; that are used for the creations of headings."
   },
   {
     "q": "What is DOM in HTML?",
