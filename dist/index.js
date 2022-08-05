@@ -38,6 +38,7 @@ submit.addEventListener("click", () => {
     if (nameInput.value != "" && emailInput.value != "") {
         if (htmlCheck.checked && cssCheck.checked) {
             console.log("sellect one type");
+            showError("sellect one type");
         }
         else {
             if (htmlCheck.checked || cssCheck.checked) {
@@ -48,11 +49,13 @@ submit.addEventListener("click", () => {
             }
             else {
                 console.log("plz check one type");
+                showError("plz check one type");
             }
         }
     }
     else {
         console.log("name and email not found");
+        showError("name and email not found");
     }
 });
 function getData(quziType) {
@@ -182,4 +185,42 @@ nextBtn.addEventListener("click", () => {
             nextBtn.innerHTML = "Result";
         }
     }
+    else {
+        getResult();
+    }
 });
+function showError(msg) {
+    info.classList.add("hid");
+    const div = document.createElement("div");
+    div.classList.add("error");
+    const p = document.createElement("p");
+    p.appendChild(document.createTextNode(msg));
+    const btn = document.createElement("button");
+    btn.appendChild(document.createTextNode("x"));
+    div.appendChild(p);
+    div.appendChild(btn);
+    document.body.appendChild(div);
+    btn.onclick = (_) => {
+        div.remove();
+        info.classList.remove("hid");
+    };
+}
+function getResult() {
+    quzi.classList.remove("active");
+    const div = document.createElement("div");
+    div.classList.add("result");
+    const name = document.createElement("p");
+    name.appendChild(document.createTextNode(`Your Name: ${nameInput.value}`));
+    const email = document.createElement("p");
+    email.appendChild(document.createTextNode(`Your email: ${emailInput.value}`));
+    const result = document.createElement("p");
+    result.appendChild(document.createTextNode(`Your result is :${+numOfQustions.innerHTML - wrongAnswers} from :${+numOfQustions.innerHTML}`));
+    const btn = document.createElement("button");
+    btn.appendChild(document.createTextNode("retry"));
+    div.appendChild(name);
+    div.appendChild(email);
+    div.appendChild(result);
+    div.appendChild(btn);
+    document.body.appendChild(div);
+    btn.onclick = (_) => location.reload();
+}

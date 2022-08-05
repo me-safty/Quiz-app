@@ -70,6 +70,7 @@ submit.addEventListener("click", () => {
   if (nameInput.value != "" && emailInput.value != "") {
     if (htmlCheck.checked && cssCheck.checked) {
       console.log("sellect one type");
+      showError("sellect one type");
     } else {
       if (htmlCheck.checked || cssCheck.checked) {
         info.classList.add("hid");
@@ -78,10 +79,12 @@ submit.addEventListener("click", () => {
         getData(quziType);
       } else {
         console.log("plz check one type");
+        showError("plz check one type");
       }
     }
   } else {
     console.log("name and email not found");
+    showError("name and email not found");
   }
 });
 
@@ -92,7 +95,7 @@ async function getData(quziType: string): Promise<void> {
   datas = data;
 }
 
-function setQ(data: qust[]) {
+function setQ(data: qust[]): void {
   quziTypeP.innerHTML = `${quziType}`;
 
   let qustion: qust = data[qIndex];
@@ -130,7 +133,7 @@ function setNumOfQustions(qustionsLength: number): void {
   numOfQustions.innerHTML = `${qustionsLength}`;
 }
 
-function checkAnswers(e: HTMLParagraphElement) {
+function checkAnswers(e: HTMLParagraphElement): void {
   openNextBtn();
   if (e.innerHTML == trueAnswer) {
     clearInterval(countDwon);
@@ -222,8 +225,64 @@ nextBtn.addEventListener("click", () => {
     setQ(datas);
     closeNextBtn();
     if (qIndex > +numOfQustions.innerHTML - 2) {
-      nextBtn.innerHTML = "Result"
+      nextBtn.innerHTML = "Result";
     }
-  } 
+  } else {
+    getResult();
+  }
 });
 
+function showError(msg: string): void {
+  info.classList.add("hid");
+
+  const div = document.createElement("div") as HTMLDivElement;
+  div.classList.add("error");
+
+  const p = document.createElement("p") as HTMLParagraphElement;
+  p.appendChild(document.createTextNode(msg));
+
+  const btn = document.createElement("button") as HTMLButtonElement;
+  btn.appendChild(document.createTextNode("x"));
+
+  div.appendChild(p);
+  div.appendChild(btn);
+  document.body.appendChild(div);
+
+  btn.onclick = (_) => {
+    div.remove();
+    info.classList.remove("hid");
+  };
+}
+
+function getResult(): void {
+  quzi.classList.remove("active");
+
+  const div = document.createElement("div") as HTMLDivElement;
+  div.classList.add("result");
+
+  const name = document.createElement("p") as HTMLParagraphElement;
+  name.appendChild(document.createTextNode(`Your Name: ${nameInput.value}`));
+
+  const email = document.createElement("p") as HTMLParagraphElement;
+  email.appendChild(document.createTextNode(`Your email: ${emailInput.value}`));
+
+  const result = document.createElement("p") as HTMLParagraphElement;
+  result.appendChild(
+    document.createTextNode(
+      `Your result is :${
+        +numOfQustions.innerHTML - wrongAnswers
+      } from :${+numOfQustions.innerHTML}`
+    )
+  );
+
+  const btn = document.createElement("button") as HTMLButtonElement;
+  btn.appendChild(document.createTextNode("retry"));
+
+  div.appendChild(name);
+  div.appendChild(email);
+  div.appendChild(result);
+  div.appendChild(btn);
+  document.body.appendChild(div);
+
+  btn.onclick = (_) => location.reload();
+}

@@ -24,7 +24,7 @@ body {
   gap: 10px;
   opacity: 1;
   z-index: 1000;
-  transition: .2s;
+  transition: 0.2s;
 }
 .hid {
   opacity: 0;
@@ -104,7 +104,7 @@ body {
   color: #141414;
   opacity: 0;
   z-index: 0;
-  transition: .2s;
+  transition: 0.2s;
 }
 .quzi-box .header {
   display: flex;
@@ -244,7 +244,7 @@ body {
   border-radius: 5px;
   transition: 0.3s;
   pointer-events: none;
-  opacity: .7;
+  opacity: 0.7;
 }
 .quzi-box .foot button:hover {
   background-color: #0066d3;
@@ -252,4 +252,68 @@ body {
 .active {
   opacity: 1;
   z-index: 10000;
+}
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 275px;
+  height: 175px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px 0px #00000042;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  border: 3px solid;
+}
+.error button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #007aff;
+  font-size: 17px;
+  cursor: pointer;
+  border-width: 2px;
+}
+.result {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px 0px #00000042;
+  font-size: 16px;
+  font-weight: 900;
+  text-align: center;
+  border: 3px solid;
+  gap: 7px;
+}
+.result button {
+  font-weight: 900;
+  background: #007aff;
+  font-size: 17px;
+  cursor: pointer;
+  border-width: 3px;
+  padding: 5px 10px;
+  text-transform: capitalize;
+}
+@media (max-width: 700px) {
+  .quzi-box {
+    width: 350px;
+  }
+  .quzi-box .qust .ans p:hover {
+    background-color: #2196f317;
+  }
 }
