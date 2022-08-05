@@ -63,6 +63,8 @@ let wrongAnswers: number = 0;
 let qIndex = 0;
 let countDwon: number;
 let datas: qust[];
+let trueAnswer: string;
+let exp: string;
 
 submit.addEventListener("click", () => {
   if (nameInput.value != "" && emailInput.value != "") {
@@ -96,6 +98,8 @@ function setQ(data: qust[]) {
   let qustion: qust = data[qIndex];
   qustTitle.innerHTML = `${qustion.q}`;
   qustNum.innerHTML = `${qIndex + 1}`;
+  trueAnswer = qustion.ans.t;
+  exp = qustion.exp;
 
   let arr: string[] = [
     qustion.ans.f1,
@@ -113,41 +117,38 @@ function setQ(data: qust[]) {
   setNumOfQustions(data.length);
 
   setTimer(qustion);
-
-  checkAnswers(answers, qustion);
 }
+
+answers.forEach((e) => {
+  e.addEventListener("click", () => {
+    checkAnswers(e);
+  });
+});
 
 function setNumOfQustions(qustionsLength: number): void {
   curentNumOfQustion.innerHTML = `${qIndex + 1}`;
   numOfQustions.innerHTML = `${qustionsLength}`;
 }
 
-function checkAnswers(
-  answers: NodeListOf<HTMLParagraphElement>,
-  qustion: qust
-) {
-  answers.forEach((e) => {
-    e.addEventListener("click", () => {
-      openNextBtn();
-      if (e.innerHTML == qustion.ans.t) {
-        clearInterval(countDwon);
+function checkAnswers(e: HTMLParagraphElement) {
+  openNextBtn();
+  if (e.innerHTML == trueAnswer) {
+    clearInterval(countDwon);
+    trueOrFalse(e, "true", "fa-check");
+    showDisction(exp);
+    answers.forEach((e) => (e.style.pointerEvents = "none"));
+  } else {
+    clearInterval(countDwon);
+    wrongAnswers++;
+    trueOrFalse(e, "false", "fa-xmark");
+    answers.forEach((e) => {
+      e.style.pointerEvents = "none";
+      if (e.innerHTML == trueAnswer) {
         trueOrFalse(e, "true", "fa-check");
-        showDisction(qustion.exp);
-        answers.forEach((e) => (e.style.pointerEvents = "none"));
-      } else {
-        clearInterval(countDwon);
-        wrongAnswers++;
-        trueOrFalse(e, "false", "fa-xmark");
-        answers.forEach((e) => {
-          e.style.pointerEvents = "none";
-          if (e.innerHTML == qustion.ans.t) {
-            trueOrFalse(e, "true", "fa-check");
-          }
-        });
-        showDisction(qustion.exp);
       }
     });
-  });
+    showDisction(exp);
+  }
 }
 
 function trueOrFalse(
@@ -157,13 +158,18 @@ function trueOrFalse(
 ): void {
   btn.parentElement?.classList.add(state);
   const icon = document.createElement("i");
-  icon.classList.add("fa-solid",i, state);
-  btn.parentElement?.appendChild(icon)
+  icon.classList.add("fa-solid", i, state);
+  btn.parentElement?.appendChild(icon);
 }
 
 function openNextBtn(): void {
   nextBtn.style.pointerEvents = "auto";
   nextBtn.style.opacity = "1";
+}
+
+function closeNextBtn(): void {
+  nextBtn.style.pointerEvents = "none";
+  nextBtn.style.opacity = ".7";
 }
 
 function showDisction(exp: string): void {
@@ -200,8 +206,8 @@ function reset(): void {
     e.style.pointerEvents = "auto";
     e.parentElement?.classList.remove("false", "true");
   });
-  const icons = document.querySelectorAll("i")
-  icons.forEach(e => e.remove())
+  const icons = document.querySelectorAll("i");
+  icons.forEach((e) => e.remove());
   discus.style.display = "none";
   clearInterval(countDwon);
   time = 30;
@@ -210,33 +216,14 @@ function reset(): void {
 }
 
 nextBtn.addEventListener("click", () => {
-  if (qIndex < +numOfQustions.innerHTML) {
+  if (qIndex < +numOfQustions.innerHTML - 1) {
     reset();
     qIndex++;
     setQ(datas);
-  }
+    closeNextBtn();
+    if (qIndex > +numOfQustions.innerHTML - 2) {
+      nextBtn.innerHTML = "Result"
+    }
+  } 
 });
 
-
-
-// function chackIfSame(ans2: string, ans: string): boolean {
-//   let arr: string[] = ans.split("");
-//   if (arr.includes("&") && arr.includes("#") && arr.includes(";")) {
-//     let newArr = arr
-//       .filter(
-//         (e) =>
-//           e != "&" && e != "#" && e != "6" && e != "0" && e != ";" && e != "2"
-//       )
-//       .join("");
-//       console.log(newArr);
-      
-//       let arr2: string[] = ans2.split("");
-//       let newArr2 = arr2.filter((e) => e != ">" && e != "<").join("");
-//       let result: boolean = newArr == newArr2;
-//       console.log(newArr2);
-//     return result;
-//   } else {
-//     let result = ans == ans2
-//     return result;
-//   }
-// }

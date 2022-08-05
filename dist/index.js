@@ -32,6 +32,8 @@ let wrongAnswers = 0;
 let qIndex = 0;
 let countDwon;
 let datas;
+let trueAnswer;
+let exp;
 submit.addEventListener("click", () => {
     if (nameInput.value != "" && emailInput.value != "") {
         if (htmlCheck.checked && cssCheck.checked) {
@@ -66,6 +68,8 @@ function setQ(data) {
     let qustion = data[qIndex];
     qustTitle.innerHTML = `${qustion.q}`;
     qustNum.innerHTML = `${qIndex + 1}`;
+    trueAnswer = qustion.ans.t;
+    exp = qustion.exp;
     let arr = [
         qustion.ans.f1,
         qustion.ans.f2,
@@ -80,36 +84,36 @@ function setQ(data) {
     }
     setNumOfQustions(data.length);
     setTimer(qustion);
-    checkAnswers(answers, qustion);
 }
+answers.forEach((e) => {
+    e.addEventListener("click", () => {
+        checkAnswers(e);
+    });
+});
 function setNumOfQustions(qustionsLength) {
     curentNumOfQustion.innerHTML = `${qIndex + 1}`;
     numOfQustions.innerHTML = `${qustionsLength}`;
 }
-function checkAnswers(answers, qustion) {
-    answers.forEach((e) => {
-        e.addEventListener("click", () => {
-            openNextBtn();
-            if (e.innerHTML == qustion.ans.t) {
-                clearInterval(countDwon);
+function checkAnswers(e) {
+    openNextBtn();
+    if (e.innerHTML == trueAnswer) {
+        clearInterval(countDwon);
+        trueOrFalse(e, "true", "fa-check");
+        showDisction(exp);
+        answers.forEach((e) => (e.style.pointerEvents = "none"));
+    }
+    else {
+        clearInterval(countDwon);
+        wrongAnswers++;
+        trueOrFalse(e, "false", "fa-xmark");
+        answers.forEach((e) => {
+            e.style.pointerEvents = "none";
+            if (e.innerHTML == trueAnswer) {
                 trueOrFalse(e, "true", "fa-check");
-                showDisction(qustion.exp);
-                answers.forEach((e) => (e.style.pointerEvents = "none"));
-            }
-            else {
-                clearInterval(countDwon);
-                wrongAnswers++;
-                trueOrFalse(e, "false", "fa-xmark");
-                answers.forEach((e) => {
-                    e.style.pointerEvents = "none";
-                    if (e.innerHTML == qustion.ans.t) {
-                        trueOrFalse(e, "true", "fa-check");
-                    }
-                });
-                showDisction(qustion.exp);
             }
         });
-    });
+        showDisction(exp);
+    }
 }
 function trueOrFalse(btn, state, i) {
     var _a, _b;
@@ -121,6 +125,10 @@ function trueOrFalse(btn, state, i) {
 function openNextBtn() {
     nextBtn.style.pointerEvents = "auto";
     nextBtn.style.opacity = "1";
+}
+function closeNextBtn() {
+    nextBtn.style.pointerEvents = "none";
+    nextBtn.style.opacity = ".7";
 }
 function showDisction(exp) {
     discus.innerHTML = `${exp}`;
@@ -157,7 +165,7 @@ function reset() {
         (_a = e.parentElement) === null || _a === void 0 ? void 0 : _a.classList.remove("false", "true");
     });
     const icons = document.querySelectorAll("i");
-    icons.forEach(e => e.remove());
+    icons.forEach((e) => e.remove());
     discus.style.display = "none";
     clearInterval(countDwon);
     time = 30;
@@ -165,9 +173,13 @@ function reset() {
     timeLine.style.width = "100%";
 }
 nextBtn.addEventListener("click", () => {
-    if (qIndex < +numOfQustions.innerHTML) {
+    if (qIndex < +numOfQustions.innerHTML - 1) {
         reset();
         qIndex++;
         setQ(datas);
+        closeNextBtn();
+        if (qIndex > +numOfQustions.innerHTML - 2) {
+            nextBtn.innerHTML = "Result";
+        }
     }
 });

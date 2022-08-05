@@ -1,0 +1,21 @@
+// function chackIfSame(ans2: string, ans: string): boolean {
+//   let arr: string[] = ans.split("");
+//   if (arr.includes("&") && arr.includes("#") && arr.includes(";")) {
+//     let newArr = arr
+//       .filter(
+//         (e) =>
+//           e != "&" && e != "#" && e != "6" && e != "0" && e != ";" && e != "2"
+//       )
+//       .join("");
+//       console.log(newArr);
+
+//       let arr2: string[] = ans2.split("");
+//       let newArr2 = arr2.filter((e) => e != ">" && e != "<").join("");
+//       let result: boolean = newArr == newArr2;
+//       console.log(newArr2);
+//     return result;
+//   } else {
+//     let result = ans == ans2
+//     return result;
+//   }
+// }
