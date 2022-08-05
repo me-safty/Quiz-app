@@ -37,7 +37,6 @@ let exp;
 submit.addEventListener("click", () => {
     if (nameInput.value != "" && emailInput.value != "") {
         if (htmlCheck.checked && cssCheck.checked) {
-            console.log("sellect one type");
             showError("sellect one type");
         }
         else {
@@ -48,13 +47,11 @@ submit.addEventListener("click", () => {
                 getData(quziType);
             }
             else {
-                console.log("plz check one type");
                 showError("plz check one type");
             }
         }
     }
     else {
-        console.log("name and email not found");
         showError("name and email not found");
     }
 });
