@@ -86,10 +86,15 @@ submit.addEventListener("click", () => {
 });
 
 async function getData(quziType: string): Promise<void> {
-  const res = await fetch(`../qustions/${quziType}.json`);
-  const data = await res.json();
-  setQ(data);
-  datas = data;
+  try {
+    const res = await fetch(`../qustions/${quziType}.json`);
+    const data = await res.json();
+    setQ(data);
+    datas = data;    
+  } catch (error) {
+    console.log(error);
+    
+  }
 }
 
 function setQ(data: qust[]): void {
